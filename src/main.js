@@ -11,13 +11,13 @@ import 'vxe-table/lib/style.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 // import PvTable from '@/components/PvTable'
-import PvTable from 'hny-plm'
+import pv from 'hny-plm'
 
 Vue.use(VueAxios, axios)
 Vue.use(VXETable)
 Vue.config.productionTip = false
 Vue.use(ElementUI)
-Vue.use(PvTable)
+Vue.use(pv)
 // Vue.component('PvTable', PvTable)
 /* eslint-disable no-new */
 new Vue({

@@ -26,6 +26,10 @@
        @cell-dblclick="cellDBLClickEvent"
        @saving="saving"
        ></pv-table>
+      <pv-page
+      :page.sync="pageNo"
+      :total="total"
+      ></pv-page>
    </div>
 </template>
 
@@ -33,6 +37,8 @@
 export default {
   data () {
     return {
+      pageNo: 1,
+      total: 100,
       filter: true,
       checkGroup: [],
       radioItem: {},
@@ -117,7 +123,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .home-wrap{
     padding: 10px;
 }

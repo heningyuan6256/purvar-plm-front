@@ -30,11 +30,7 @@
 </template>
 
 <script>
-import PvTable from '@/components/PvTable'
 export default {
-  components: {
-    PvTable
-  },
   data () {
     return {
       filter: true,

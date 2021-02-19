@@ -8,7 +8,7 @@
            radio: 是否有单选列
            check: 是否有复选列
            checkGroup: 子组件反馈给父组件，要加sync
-           radioItem: 子组件反馈给父组件，要加sync
+           radioItem: 子组件反馈给父组件，要sync
            filter: 筛选列
            saving: 实时保存方法
         -->
@@ -26,17 +26,48 @@
        @cell-dblclick="cellDBLClickEvent"
        @saving="saving"
        ></pv-table>
-      <pv-page
+      <!-- <pv-page
       :page.sync="pageNo"
       :total="total"
-      ></pv-page>
+      @getList="getList"
+      ></pv-page> -->
+      <pv-dialog
+      :visible.sync="dialogVisible"
+      :title="dialogTitle"
+      :width="width"
+      :top="top">
+      </pv-dialog>
    </div>
 </template>
 
 <script>
+import PvTable from '@/components/PvTable'
+import PvDialog from '@/components/PvDialog'
+import PvPage from '@/components/PvPage'
 export default {
+  components: {
+    PvDialog,
+    PvTable,
+    PvPage
+  },
   data () {
     return {
+      dialogTitle: '对话框标题',
+      top: '15vh',
+      width: '400',
+      btnText: {
+        del: '删除',
+        cancel: '取消',
+        continueAdd: '继续添加',
+        submit: '保存'
+      },
+      btnAuth: {
+        del: false,
+        cancel: true,
+        continueAdd: false,
+        submit: true
+      },
+      dialogVisible: false,
       pageNo: 1,
       total: 100,
       filter: true,
@@ -106,6 +137,7 @@ export default {
     }
   },
   methods: {
+    // 表格方法
     formatterName (val) {
       return val.cellValue === '12312' ? 'qwe' : val.cellValue
     },
@@ -118,6 +150,10 @@ export default {
     saving (row, field) {
       console.log('当前行的值：', row)
       console.log('当前列的值：', field)
+    },
+    // 分页方法
+    getList () {
+
     }
   }
 }

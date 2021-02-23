@@ -1,6 +1,6 @@
 <template>
   <div>
-      <vxe-toolbar v-if="filter" custom>
+      <vxe-toolbar v-if="filter" perfect custom>
       </vxe-toolbar>
       <vxe-table
       id="table"
@@ -14,7 +14,7 @@
       highlight-current-row
       highlight-hover-row
       show-overflow
-      border="inner"
+      border
       resizable
       round
       @checkbox-all="selectAllEvent"

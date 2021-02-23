@@ -26,17 +26,25 @@
        @cell-dblclick="cellDBLClickEvent"
        @saving="saving"
        ></pv-table>
-      <!-- <pv-page
-      :page.sync="pageNo"
+       <!--
+         pageNo: 当前的页数
+         pageSize: 每页的大小
+         total: 总数
+         getList: 获取数据方法
+        -->
+      <pv-page
+      :current-page.sync="pageNo"
+      :page-size.sync="pageSize"
       :total="total"
       @getList="getList"
-      ></pv-page> -->
+      ></pv-page>
       <pv-dialog
-      :visible.sync="dialogVisible"
+      :value.sync="visible"
       :title="dialogTitle"
-      :width="width"
-      :top="top">
-      </pv-dialog>
+      width="800"
+      height="400"
+      :footer="footer"
+      ></pv-dialog>
    </div>
 </template>
 
@@ -52,9 +60,9 @@ export default {
   },
   data () {
     return {
+      footer: true,
+      visible: true,
       dialogTitle: '对话框标题',
-      top: '15vh',
-      width: '400',
       btnText: {
         del: '删除',
         cancel: '取消',
@@ -67,9 +75,9 @@ export default {
         continueAdd: false,
         submit: true
       },
-      dialogVisible: false,
       pageNo: 1,
       total: 100,
+      pageSize: 10,
       filter: true,
       checkGroup: [],
       radioItem: {},
@@ -153,7 +161,6 @@ export default {
     },
     // 分页方法
     getList () {
-
     }
   }
 }

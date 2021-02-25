@@ -13,6 +13,8 @@
            saving: 实时保存方法
            dealEvent: 自定义事件
            buttonColumn: 按钮组
+           exportVisible: 是否展示导出按钮
+           printVisible: 是否展示打印按钮
         -->
        <pv-table
        v-loading="loading"

@@ -49,9 +49,10 @@ export default {
   methods: {
     cancel () {
       this.$emit('update:value', false)
+      this.$emit('cancel')
     },
     confirm () {
-
+      this.$emit('confirm')
     }
   }
 }

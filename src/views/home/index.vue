@@ -44,6 +44,8 @@
       width="800"
       height="400"
       :footer="footer"
+      @cancel="cancel"
+      @confirm="confirm"
       ></pv-dialog>
    </div>
 </template>
@@ -63,18 +65,6 @@ export default {
       footer: true,
       visible: true,
       dialogTitle: '对话框标题',
-      btnText: {
-        del: '删除',
-        cancel: '取消',
-        continueAdd: '继续添加',
-        submit: '保存'
-      },
-      btnAuth: {
-        del: false,
-        cancel: true,
-        continueAdd: false,
-        submit: true
-      },
       pageNo: 1,
       total: 100,
       pageSize: 10,
@@ -161,7 +151,9 @@ export default {
     },
     // 分页方法
     getList () {
-    }
+    },
+    cancel () {},
+    confirm () {}
   }
 }
 </script>

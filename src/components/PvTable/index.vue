@@ -49,27 +49,27 @@
 export default {
   props: {
     tableColumn: {
-      props: Array,
+      type: Array,
       default: () => []
     },
     radio: {
-      props: Boolean,
+      type: Boolean,
       default: false
     },
     check: {
-      props: Boolean,
+      type: Boolean,
       default: false
     },
     radioItem: {
-      props: Object,
+      type: Object,
       default: () => {}
     },
     checkGroup: {
-      props: Array,
+      type: Array,
       default: () => []
     },
     filter: {
-      props: Boolean,
+      type: Boolean,
       default: false
     }
   },

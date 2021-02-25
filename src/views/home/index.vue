@@ -11,6 +11,8 @@
            radioItem: 子组件反馈给父组件，要sync
            filter: 筛选列
            saving: 实时保存方法
+           dealEvent: 自定义事件
+           buttonColumn: 按钮组
         -->
        <pv-table
        v-loading="loading"
@@ -18,13 +20,21 @@
        :tableColumn="tableColumn"
        :radio="radio"
        :check="check"
-       :filter="filter"
        :checkGroup.sync="checkGroup"
        :radioItem.sync="radioItem"
        height="500px"
+       :tool="tool"
+       :filter="filter"
+       :search="search"
+       :buttonColumn="buttonColumn"
+       :btnFlag="btnFlag"
+       :exportVisible="exportVisible"
+       :printVisible="printVisible"
        @cell-click="cellClickEvent"
        @cell-dblclick="cellDBLClickEvent"
        @saving="saving"
+       @dealEvent="dealEvent"
+       @getTableList="getTableList"
        ></pv-table>
        <!--
          pageNo: 当前的页数
@@ -62,8 +72,26 @@ export default {
   },
   data () {
     return {
+      exportVisible: true,
+      printVisible: true,
+      btnFlag: true,
+      searchVal: '',
+      search: true,
+      tool: true,
+      buttonColumn: [
+        {
+          name: 'add',
+          label: '添加',
+          type: 'primary'
+        },
+        {
+          name: 'delete',
+          label: '删除',
+          type: 'danger'
+        }
+      ],
       footer: true,
-      visible: true,
+      visible: false,
       dialogTitle: '对话框标题',
       pageNo: 1,
       total: 100,
@@ -135,6 +163,9 @@ export default {
     }
   },
   methods: {
+    getTableList (val) {
+      console.log(val, '搜索表格的值')
+    },
     // 表格方法
     formatterName (val) {
       return val.cellValue === '12312' ? 'qwe' : val.cellValue
@@ -153,7 +184,17 @@ export default {
     getList () {
     },
     cancel () {},
-    confirm () {}
+    confirm () {},
+    dealEvent (val) {
+      switch (val) {
+        case 'add':
+          console.log('执行添加方法')
+          break
+        case 'delete':
+          console.log('执行删除方法')
+          break
+      }
+    }
   }
 }
 </script>

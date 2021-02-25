@@ -10,11 +10,15 @@
            checkGroup: 子组件反馈给父组件，要加sync
            radioItem: 子组件反馈给父组件，要sync
            filter: 筛选列
-           saving: 实时保存方法
            dealEvent: 自定义事件
            buttonColumn: 按钮组
            exportVisible: 是否展示导出按钮
            printVisible: 是否展示打印按钮
+           @cell-click: 单元格单击事件
+           @cell-dblclick: 单元格双击事件
+           @saving: 实时保存方法
+           @dealEvent: 自定义方法
+           @getTableList: 获取列表数据方法
         -->
        <pv-table
        v-loading="loading"
